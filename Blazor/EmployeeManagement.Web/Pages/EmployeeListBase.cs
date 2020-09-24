@@ -26,7 +26,7 @@ namespace EmployeeManagement.Web.Pages
                 Email = "Mello@munchinOG.com",
                 DateOfBirth = new DateTime( 1988, 08, 2 ),
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 1, DepartmentName = "HR" },
+                DepartmentId = 201,
                 PhotoPath = "images/mello.png"
             };
 
@@ -38,7 +38,7 @@ namespace EmployeeManagement.Web.Pages
                 Email = "Kate@munchinOG.com",
                 DateOfBirth = new DateTime( 1980, 05, 11 ),
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
+                DepartmentId = 202,
                 PhotoPath = "images/kate.png"
             };
 
@@ -50,7 +50,7 @@ namespace EmployeeManagement.Web.Pages
                 Email = "Queen@munchinOG.com",
                 DateOfBirth = new DateTime( 1990, 05, 12 ),
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 1, DepartmentName = "Payroll" },
+                DepartmentId = 203,
                 PhotoPath = "images/queen.png"
             };
 
@@ -62,7 +62,7 @@ namespace EmployeeManagement.Web.Pages
                 Email = "Sam@munchinOG.com",
                 DateOfBirth = new DateTime( 1981, 12, 22 ),
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 2, DepartmentName = "IT" },
+                DepartmentId = 204,
                 PhotoPath = "images/sam.png"
             };
 
