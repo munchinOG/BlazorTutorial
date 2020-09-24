@@ -10,14 +10,14 @@ namespace EmployeeManagement.Web.Pages
     {
         public IEnumerable<Employee> Employees { get; set; }
 
-        protected override Task OnInitializedAsync( )
+        protected override async Task OnInitializedAsync( )
         {
-            LoadEmployees();
-            return base.OnInitializedAsync();
+            await Task.Run( LoadEmployees );
         }
 
         private void LoadEmployees( )
         {
+            System.Threading.Thread.Sleep( 3000 );
             Employee e1 = new Employee
             {
                 EmployeeId = 101,
@@ -56,14 +56,14 @@ namespace EmployeeManagement.Web.Pages
 
             Employee e4 = new Employee
             {
-                EmployeeId = 2,
+                EmployeeId = 104,
                 FirstName = "Sam",
                 LastName = "Galloway",
                 Email = "Sam@munchinOG.com",
                 DateOfBirth = new DateTime( 1981, 12, 22 ),
                 Gender = Gender.Male,
                 Department = new Department { DepartmentId = 2, DepartmentName = "IT" },
-                PhotoPath = "images/sam.jpg"
+                PhotoPath = "images/sam.png"
             };
 
             Employees = new List<Employee> { e1, e2, e3, e4 };
