@@ -10,14 +10,14 @@ namespace EmployeeManagement.Web.Pages
     {
         public IEnumerable<Employee> Employees { get; set; }
 
-        protected override Task OnInitializedAsync( )
+        protected override async Task OnInitializedAsync( )
         {
-            LoadEmployees();
-            return base.OnInitializedAsync();
+            await Task.Run( LoadEmployees );
         }
 
         private void LoadEmployees( )
         {
+            System.Threading.Thread.Sleep( 3000 );
             Employee e1 = new Employee
             {
                 EmployeeId = 101,
@@ -38,7 +38,7 @@ namespace EmployeeManagement.Web.Pages
                 Email = "Kate@munchinOG.com",
                 DateOfBirth = new DateTime( 1980, 05, 11 ),
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 1, DepartmentName = "HR" },
+                Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
                 PhotoPath = "images/kate.png"
             };
 
@@ -50,11 +50,23 @@ namespace EmployeeManagement.Web.Pages
                 Email = "Queen@munchinOG.com",
                 DateOfBirth = new DateTime( 1990, 05, 12 ),
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 1, DepartmentName = "HR" },
+                Department = new Department { DepartmentId = 1, DepartmentName = "Payroll" },
                 PhotoPath = "images/queen.png"
             };
 
-            Employees = new List<Employee> { e1, e2, e3 };
+            Employee e4 = new Employee
+            {
+                EmployeeId = 104,
+                FirstName = "Sam",
+                LastName = "Galloway",
+                Email = "Sam@munchinOG.com",
+                DateOfBirth = new DateTime( 1981, 12, 22 ),
+                Gender = Gender.Male,
+                Department = new Department { DepartmentId = 2, DepartmentName = "IT" },
+                PhotoPath = "images/sam.png"
+            };
+
+            Employees = new List<Employee> { e1, e2, e3, e4 };
         }
     }
 }
