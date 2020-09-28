@@ -61,7 +61,7 @@ namespace EmployeeManagement.Api.Repo
             return null;
         }
 
-        public async void DeleteEmployee( int employeeId )
+        public async Task<Employee> DeleteEmployee( int employeeId )
         {
             var result = await _employeeDbContext.Employees
                 .FirstOrDefaultAsync( e => e.EmployeeId == employeeId );
@@ -69,7 +69,10 @@ namespace EmployeeManagement.Api.Repo
             {
                 _employeeDbContext.Employees.Remove( result );
                 await _employeeDbContext.SaveChangesAsync();
+                return result;
             }
+
+            return null;
         }
     }
 }
