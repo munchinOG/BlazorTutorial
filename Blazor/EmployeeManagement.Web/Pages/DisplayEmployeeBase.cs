@@ -1,5 +1,6 @@
 ﻿using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Components;
+using System.Threading.Tasks;
 
 namespace EmployeeManagement.Web.Pages
 {
@@ -10,5 +11,12 @@ namespace EmployeeManagement.Web.Pages
 
         [Parameter]
         public bool ShowFooter { get; set; }
+
+        [Parameter]
+        public EventCallback<bool> OnEmployeeSelection { get; set; }
+        protected async Task CheakBoxChanged( ChangeEventArgs e )
+        {
+            await OnEmployeeSelection.InvokeAsync( (bool)e.Value );
+        }
     }
 }
