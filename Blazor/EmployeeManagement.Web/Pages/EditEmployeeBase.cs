@@ -19,7 +19,8 @@ namespace EmployeeManagement.Web.Pages
 
         public List<Department> Departments { get; set; } = new List<Department>();
 
-        public string DepartmentId { get; set; }
+        //public Guid DepartmentId { get; set; }
+        //public string DepartmentId { get; set; }
 
         [Parameter]
         public string Id { get; set; }
@@ -28,7 +29,8 @@ namespace EmployeeManagement.Web.Pages
         {
             Employee = await EmployeeService.GetEmployee( int.Parse( Id ) );
             Departments = (await DepartmentService.GetDepartments()).ToList();
-            DepartmentId = Employee.DepartmentId.ToString();
+            //DepartmentId = Employee.DepartmentId.ToString();
+            //DepartmentId = Guid.NewGuid();
         }
     }
 }
