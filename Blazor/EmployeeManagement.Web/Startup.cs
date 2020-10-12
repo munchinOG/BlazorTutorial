@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace EmployeeManagement.Web
 {
@@ -25,6 +26,10 @@ namespace EmployeeManagement.Web
             services.AddHttpClient<IEmployeeService, EmployeeService>( client =>
              {
                  client.BaseAddress = new System.Uri( "https://localhost:44305/" );
+             } );
+            services.AddHttpClient<IDepartmentService, DepartmentService>( client =>
+             {
+                 client.BaseAddress = new Uri( "https://localhost:44305/" );
              } );
         }
 
